@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/JsonDiff?useSSL=false&serverTimezone=UTC
     username: root
-    password: lxy200222
+    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 # MP 配置
