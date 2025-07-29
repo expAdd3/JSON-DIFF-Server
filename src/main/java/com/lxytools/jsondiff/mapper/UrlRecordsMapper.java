@@ -16,13 +16,13 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UrlRecordsMapper extends BaseMapper<UrlRecords> {
 
-    @Insert("INSERT INTO url_records (url, http_method, ip_address, user_agent, referrer, domain, path, query_params, created_at, updated_at) " +
-            "VALUES (#{url}, #{httpMethod}, #{ipAddress}, #{userAgent}, #{referrer}, #{domain}, #{path}, #{queryParams}, #{createdAt}, #{updatedAt}) " +
+    @Insert("INSERT INTO url_records (url, http_method, ip_address, user_agent, referrer, domain, path, query_params, status_code, created_at, updated_at) " +
+            "VALUES (#{url}, #{httpMethod}, #{ipAddress}, #{userAgent}, #{referrer}, #{domain}, #{path}, #{queryParams}, #{statusCode}, #{createdAt}, #{updatedAt}) " +
             "ON DUPLICATE KEY UPDATE " +
             "http_method = #{httpMethod}, " +
             "user_agent = #{userAgent}, " +
             "referrer = #{referrer}, " +
-            "created_at = #{createdAt}, " +
+            "status_code = #{statusCode}, " +
             "updated_at = #{updatedAt}")
     int insertOrUpdateByIpAndUrl(UrlRecords record);
 }
