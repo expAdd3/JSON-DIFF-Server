@@ -6,4 +6,5 @@ import lombok.Data;
 public class UrlRecordRequest {
     private String url;
     private String method;
+    private String statusCode;
 }

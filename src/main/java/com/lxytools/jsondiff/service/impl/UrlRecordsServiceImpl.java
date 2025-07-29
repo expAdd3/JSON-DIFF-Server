@@ -34,6 +34,7 @@ public class UrlRecordsServiceImpl extends ServiceImpl<UrlRecordsMapper, UrlReco
         UrlRecords record = new UrlRecords();
         record.setUrl(request.getUrl());
         record.setHttpMethod(request.getMethod());
+        record.setStatusCode(Short.valueOf(request.getStatusCode()));
         record.setIpAddress(IpUtils.getClientIpAddress(httpRequest));
         record.setUserAgent(httpRequest.getHeader("User-Agent"));
         record.setReferrer(httpRequest.getHeader("Referer"));
@@ -61,7 +62,7 @@ public class UrlRecordsServiceImpl extends ServiceImpl<UrlRecordsMapper, UrlReco
                 .map(record -> {
                     UrlHistoryResponse response = new UrlHistoryResponse();
                     response.setUrl(record.getUrl());
-                    response.setStatusCode(response.getStatusCode());
+                    response.setStatusCode(Integer.valueOf(record.getStatusCode()));
                     return response;
                 })
                 .collect(Collectors.toList());
